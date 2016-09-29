@@ -1,0 +1,17 @@
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :subject_id, input_html: { value: params[:subject_id]}, as: :hidden %>
+
+     <!-- approoval must be allowed only for admin -->
+  </div>
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
