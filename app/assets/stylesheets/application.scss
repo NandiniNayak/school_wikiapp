@@ -1,1 +1,12 @@
 @import 'bootstrap';
+h1{
+  text-align: center;
+  background-color: pink;
+  // color: red; color is not working
+}
+
+.block-align{
+text-align: center;
+padding-top: 20px;
+
+}
