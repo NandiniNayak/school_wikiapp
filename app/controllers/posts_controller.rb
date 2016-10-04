@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_subject,only: :index
+  # before_action :set_subject,only: :index
 
   # GET /posts
   # GET /posts.json
   def index
     # @posts = Post.all
-    # @posts = Post.where(subject:params[:subject_id])
-    @posts = @subject.posts
+    @posts = Post.where(subject:params[:subject_id])
+    # @posts = @subject.posts
   end
 
   # GET /posts/1
@@ -72,9 +72,9 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
     end
-    def set_subject
-      @subject = Subject.find(params[:subject_id])
-    end
+    # def set_subject
+    #   @subject = Subject.find(params[:subject_id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
