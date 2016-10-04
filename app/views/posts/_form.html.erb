@@ -5,6 +5,7 @@
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :subject_id, input_html: { value: params[:subject_id]}, as: :hidden %>
+    <%= f.input :image,as: :file%>
 
      <!-- approoval must be allowed only for admin -->
   </div>
