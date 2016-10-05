@@ -6,6 +6,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'acts_as_votable'
+gem 'font-awesome-sass'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

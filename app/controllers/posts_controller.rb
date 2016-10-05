@@ -1,9 +1,27 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :vote]
   # before_action :set_subject,only: :index
 
   # GET /posts
   # GET /posts.json
+
+  def vote
+    case current_user.voted_as_when_voted_for(@post)
+      when nil
+        @post.upvote_by current_user
+      when true
+        @post.unvote_by current_user
+        # unvote removes the vote downvote decreases the score--> nandini
+      when false
+        @post.upvote_by current_user
+    else
+    end
+    redirect_to post_path
+    # Jamie : This needs to be updated, refresh required to show changes
+    #  however posts_path redirects to posts page which is currently empty
+    #  as the post are listed specific to the subject
+  end
+
   def index
     # @posts = Post.all
     @posts = Post.where(subject:params[:subject_id])
@@ -13,11 +31,11 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comments = @post.comments
   end
 
   # GET /posts/new
   def new
-
     @post = Post.new
   end
 

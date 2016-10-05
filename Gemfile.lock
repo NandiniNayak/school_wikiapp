@@ -38,6 +38,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_votable (0.10.0)
     arel (7.1.2)
     autoprefixer-rails (6.5.0.1)
       execjs
@@ -78,6 +79,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14-x86-mingw32)
+    font-awesome-sass (4.6.2)
+      sass (>= 3.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     http-cookie (1.0.3)
@@ -203,12 +206,14 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  acts_as_votable
   bootstrap
   byebug
   carrierwave
   cloudinary
   coffee-rails (~> 4.2)
   devise
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   puma (~> 3.0)

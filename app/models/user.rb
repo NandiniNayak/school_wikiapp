@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   validates :email, format:{with: /@student.com/}
   has_many :posts
+  acts_as_voter
 end
