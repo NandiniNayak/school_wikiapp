@@ -2,6 +2,8 @@
   <p><%=@post.description%></p>
   <p><%=image_tag(@post.image_url,width:'50%',height:'50%')%></p>
   <p><%=@post.user.email%></p>
+  <%= link_to 'Edit', edit_post_path(@post) if current_user %>
+  <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }if current_user %>
 
   <%= form_for [@post, Comment.new] do |f| %>
     <p>

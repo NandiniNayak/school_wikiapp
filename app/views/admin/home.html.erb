@@ -1,2 +1,21 @@
-<h1>Admin#home</h1>
-<p>Find me in app/views/admin/home.html.erb</p>
+<h1>Posts Approval</h1>
+<div class ="row">
+      <% @posts.each do |post| %>
+      <div class ="col-md-4">
+      <div class ="card">
+      <div class="card-title"><%=post.title%></div>
+      <div class="card-content"><%=post.description%></div>
+      <%= post.approved %>
+      <div class ="card-text"><%= post.user.email%></div>
+      <div class ="card-image"><%=image_tag(post.image_url)%></div>
+
+      <%= link_to 'Aproove',admin_approved_path(post: post), method: :post%>
+      <!-- <!-%= link_to 'Aproove',admin_home_path(approve: true,post: post)%> -->
+
+
+
+      </div>
+      </div>
+    <% end %>
+
+</div>

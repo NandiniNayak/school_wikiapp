@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   root 'landing#page'
   resources :subjects
   get 'admin/home'
+  post 'admin/approved'
 
   devise_for :admins
   get 'home/page'
+
 
   devise_for :users
   resources :posts do
