@@ -10,7 +10,7 @@
         <!-- <%= post.approved %> -->
         <div class ="card-text"><%= post.user.email%></div>
         <div class ="card-image"><%=image_tag(post.image_url)%></div>
-        
+
         <%= link_to 'Show', post %>
         <!-- <!-%= link_to "upvote", like_post_path(post), method: :put%> -->
         <% if current_user %>

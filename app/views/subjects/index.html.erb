@@ -24,7 +24,7 @@
 
    <%else%>
     <%= "No posts, Be the first to add" %>
-    <%= link_to "Add post",new_post_path,class: "btn btn-info"%>
+    <%= link_to "Add post",new_post_path(subject_id:subject.id),class: "btn btn-info"%>
    <%end%>
 
 
