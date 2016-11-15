@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Posts</h1>
 <div class ="row">
-      <% @posts.each do |post| %>
-      <div class ="col-md-4">
-      <div class ="card">
+  <% if @posts.nil? %>
+    <h1> No posts yet, be the first to add</h1>
+    <% link_to 'Add Post',new_post_path,class: "btn btn-info"%>
+   <% else %>
+    <% @posts.each do |post| %>
+      <% if (post.approved == true)%>
+        <div class ="col-md-4">
+        <div class ="card">
         <div class="card-title"><%=post.title%></div>
-        <!-- <div class="card-content"><%=post.description%></div> -->
-        <!-- <%= post.approved %> -->
         <div class ="card-text"><%= post.user.email%></div>
         <div class ="card-image"><%=image_tag(post.image_url)%></div>
-
-        <%= link_to 'Show', post %>
-        <!-- <!-%= link_to "upvote", like_post_path(post), method: :put%> -->
-        <% if current_user %>
-           <%= link_to like_post_path(post), method: :put do%>
-             <%= current_user.voted_as_when_voted_for(post) == true ? icon("heart") : icon("heart-o") %>
-           <% end %>
-           <% else %>
-           <%= icon("heart-o") %>
-           <% end %>
-        <%= post.score%>
-
-      </div>
-      </div>
+          <%= link_to 'Show', post %>
+          <% if current_user %>
+             <%= link_to like_post_path(post), method: :put do%>
+               <%= current_user.voted_as_when_voted_for(post) == true ? icon("heart") : icon("heart-o") %>
+             <% end %>
+          <% else %>
+             <%= icon("heart-o") %>
+          <% end %>
+          <%= post.score%>
+        </div>
+        </div>
+      <% end %>
     <% end %>
-
+  <% end %>
 </div>
